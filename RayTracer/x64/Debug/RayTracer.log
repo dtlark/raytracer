@@ -1,0 +1,4 @@
+﻿  Tuple.cpp
+C:\Users\deant\Desktop\RT\RayTracer\Tuple.h(222,10): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\Tuple.cpp(55,8): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  RayTracer.vcxproj -> C:\Users\deant\Desktop\RT\x64\Debug\RayTracer.exe
