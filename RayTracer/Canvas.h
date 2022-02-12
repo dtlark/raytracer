@@ -1,4 +1,4 @@
-#include "Tuple.h"
+#include "Tuples.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -8,13 +8,16 @@ using namespace std;
 
 class Canvas
 {
-	int width = 0;
-	int height = 0;
+	int width = 50;
+	int height = 50;
 	vector<vector<Color>> canvas;
 
 public:
 
-	Canvas() {}
+	Canvas() {
+		Create();
+
+	}
 
 	Canvas(int width, int height) {
 		this->width = width;
@@ -97,9 +100,9 @@ public:
 			for (int y = 0; y < getHeight(); y++) {
 
 				Color color = getPixel(x, y);
-				int red = (int)(color.getR() * 255);
-				int green = (int)(color.getG() * 255);
-				int blue = (int)(color.getB() * 255);
+				int red = (int)(color.x * 255);
+				int green = (int)(color.y * 255);
+				int blue = (int)(color.z * 255);
 
 				if (red > 255) {
 					red = 255;

@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="RayTracer.cpp" />
-    <ClCompile Include="Tuple.cpp" />
+    <ClCompile Include="Tuples.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Canvas.h" />
-    <ClInclude Include="Tuple.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Tuples.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,18 +18,24 @@
     <ClCompile Include="RayTracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tuple.cpp">
+    <ClCompile Include="Tuples.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tuple.h">
+    <ClInclude Include="Tuples.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Canvas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

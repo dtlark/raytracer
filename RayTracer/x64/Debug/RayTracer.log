@@ -1,4 +1,11 @@
-﻿  Tuple.cpp
-C:\Users\deant\Desktop\RT\RayTracer\Tuple.h(222,10): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Users\deant\Desktop\RT\RayTracer\Tuple.cpp(55,8): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  Canvas.cpp
+C:\Users\deant\Desktop\RT\RayTracer\Canvas.h(121,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Matrix.cpp
+C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(31,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(32,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  RayTracer.cpp
+C:\Users\deant\Desktop\RT\RayTracer\Canvas.h(121,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(31,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(32,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   RayTracer.vcxproj -> C:\Users\deant\Desktop\RT\x64\Debug\RayTracer.exe
