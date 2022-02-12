@@ -40,7 +40,7 @@ Vector Vector::operator-() const {
 }
 
 //scalar multiplication
-Vector Vector::operator*(double num) const {
+Vector Vector::operator*(float num) const {
 
 	return Vector(x * num, y * num, z * num);
 }
@@ -50,25 +50,25 @@ Vector Vector::operator*(Vector const& other) const {
 }
 
 //scalar division
-Vector Vector::operator/(double num) const {
+Vector Vector::operator/(float num) const {
 
-	double _x = x / num;
-	double _y = y / num;
-	double _z = z / num;
+	float _x = x / num;
+	float _y = y / num;
+	float _z = z / num;
 
 	return Vector(x / num, y / num, z / num);
 }
 Vector Vector::operator/(Vector const& other) const {
 
-	double _x = x / other.x;
-	double _y = y / other.y;
-	double _z = z / other.z;
+	float _x = x / other.x;
+	float _y = y / other.y;
+	float _z = z / other.z;
 
 	return Vector(x / other.x, y / other.y, z / other.z);
 }
 
 //magnitude (v): length of a tuple
-double Vector::magnitude() const {
+float Vector::magnitude() const {
 	return sqrt(pow(x, 2) +
 		pow(y, 2) +
 		pow(z, 2));
@@ -76,14 +76,14 @@ double Vector::magnitude() const {
 
 //normalization: converting a vector to a unit vector (vector of magnitude 1) 
 Vector Vector::normalize() const {
-	double mag = magnitude();
+	float mag = magnitude();
 	return Vector(x / mag,
 				  y / mag,
 				  z / mag);
 }
 
 //dot product: the smaller the dot product the larger the angle between vectors 
-double Vector::dot(Vector const& u) const {
+float Vector::dot(Vector const& u) const {
 	return this->x * u.x +
 			this->y * u.y +
 			this->z * u.z;
@@ -149,7 +149,7 @@ Point Point::operator-() const {
 }
 
 //scalar multiplication
-Point Point::operator*(double num) const {
+Point Point::operator*(float num) const {
 
 	return Point(x * num, y * num, z * num);
 }
@@ -159,7 +159,7 @@ Point Point::operator*(Point const& other) const {
 }
 
 //scalar division
-Point Point::operator/(double num) const {
+Point Point::operator/(float num) const {
 
 	return Point(x / num, y / num, z / num);
 }

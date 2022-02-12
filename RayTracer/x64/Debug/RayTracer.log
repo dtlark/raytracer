@@ -1,11 +1,25 @@
 ﻿  Canvas.cpp
-C:\Users\deant\Desktop\RT\RayTracer\Canvas.h(121,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\Canvas.h(120,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   Matrix.cpp
 C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(31,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(32,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   RayTracer.cpp
-C:\Users\deant\Desktop\RT\RayTracer\Canvas.h(121,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\Canvas.h(120,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(31,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\deant\Desktop\RT\RayTracer\Matrix.h(32,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(6,22): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(10,25): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(81,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(83,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(90,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(93,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(148,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(148,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(152,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(153,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(178,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\deant\Desktop\RT\RayTracer\RayTracer.cpp(179,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Tuples.cpp
+C:\Users\deant\Desktop\RT\RayTracer\Tuples.cpp(72,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   RayTracer.vcxproj -> C:\Users\deant\Desktop\RT\x64\Debug\RayTracer.exe

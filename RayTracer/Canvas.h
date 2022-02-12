@@ -85,7 +85,7 @@ public:
 
 	void savePPM(string fileName) {
 
-		//plain format PPM cannot have a line linger than 70 characters
+		//plain format PPM cannot have a line longer than 70 characters
 		int maxVal = 255;
 		string header = "P3\n" +
 			to_string(getWidth()) + " " + to_string(getHeight()) + "\n" +
@@ -93,7 +93,6 @@ public:
 		string body = "";
 		int count = 0;
 		int maxChar = 70;
-
 
 
 		for (int x = 0; x < getWidth(); x++) {

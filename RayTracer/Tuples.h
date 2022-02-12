@@ -7,10 +7,10 @@ using namespace std;
 
 struct Tuple {
 
-	double x;
-	double y;
-	double z;
-	double w;
+	float x;
+	float y;
+	float z;
+	float w;
 	int type;
 
 	Tuple();
@@ -19,8 +19,8 @@ struct Tuple {
 		return type;
 	}
 
-	vector<double> getAll() const {
-		return vector<double>{ x, y, z, w };
+	vector<float> getAll() const {
+		return vector<float>{ x, y, z, w };
 	}
 
 	void Print() {
@@ -34,7 +34,7 @@ struct Tuple {
 
 struct Vector : Tuple {
 
-	Vector(double r = 0, double g = 0, double b = 0) {
+	Vector(float r = 0, float g = 0, float b = 0) {
 		x = r;
 		y = g;
 		z = b;
@@ -47,14 +47,14 @@ struct Vector : Tuple {
 	Vector operator+(Vector const& other) const;
 	Vector operator-(Vector const& other) const;
 	Vector operator-() const;
-	Vector operator*(double num) const;
+	Vector operator*(float num) const;
 	Vector operator*(Vector const& other) const;
-	Vector operator/(double num) const;
+	Vector operator/(float num) const;
 	Vector operator/(Vector const& other) const;
 
-	double magnitude() const;
+	float magnitude() const;
 	Vector normalize() const;
-	double dot(Vector const& u) const;
+	float dot(Vector const& u) const;
 	Vector cross(Vector const& u) const;
 
 	Vector reflect(Vector incoming, Vector normal) {
@@ -62,7 +62,7 @@ struct Vector : Tuple {
 		return incoming - normal * 2 * incoming.dot(normal);
 	}
 
-	Vector scale(double x) {
+	Vector scale(float x) {
 
 		Vector temp;
 
@@ -77,7 +77,7 @@ struct Vector : Tuple {
 
 struct Point : Tuple {
 
-	Point(double r = 0, double g = 0, double b = 0) {
+	Point(float r = 0, float g = 0, float b = 0) {
 
 		x = r;
 		y = g;
@@ -93,15 +93,15 @@ struct Point : Tuple {
 	Vector operator-(Point other);
 	Point operator-(Vector other);
 	Point operator-() const;
-	Point operator*(double num) const;
+	Point operator*(float num) const;
 	Point operator*(Point const& other) const;
-	Point operator/(double num) const;
+	Point operator/(float num) const;
 	Point operator/(Point const& other) const;
 };
 
 
 struct Color : public Tuple {
-	Color(double r = 0, double g = 0, double b = 0, double o = 1) {
+	Color(float r = 0, float g = 0, float b = 0, float o = 1) {
 
 		x = r;
 		y = g;
@@ -115,7 +115,7 @@ struct Color : public Tuple {
 		return Color(this->x + other.x, this->y + other.y, this->z + other.z);
 	}
 
-	Color operator*(double const& other) {
+	Color operator*(float const& other) {
 
 		return Color(this->x * other, this->y * other, this->z * other);
 	}
