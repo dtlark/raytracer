@@ -34,10 +34,10 @@ struct Tuple {
 
 struct Vector : Tuple {
 
-	Vector(float r = 0, float g = 0, float b = 0) {
-		x = r;
-		y = g;
-		z = b;
+	Vector(float x = 0, float y = 0, float z = 0) {
+		this->x = x;
+		this->y = y;
+		this->z = z;
 		w = 0;
 		type = 0;
 	}
@@ -77,11 +77,11 @@ struct Vector : Tuple {
 
 struct Point : Tuple {
 
-	Point(float r = 0, float g = 0, float b = 0) {
-
-		x = r;
-		y = g;
-		z = b;
+	Point(float x = 0, float y = 0, float z = 0) {
+	
+		this->x = x;
+		this->y = y;
+		this->z = z;
 		w = 1;
 		type = 1;
 	}

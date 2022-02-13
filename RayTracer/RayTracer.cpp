@@ -56,6 +56,11 @@ struct Light {
 	Point position;
 	Color color;
 	float intensity;
+	Light(Point pos, Color col, float intense) {
+		position = pos;
+		color = col;
+		intensity = intense;
+	}
 };
 
 struct Scene {
@@ -64,13 +69,39 @@ struct Scene {
 
 };
 
+struct AABB {
+	Point minP;
+	Point maxP;
+	AABB(Point min, Point max) {
+		minP = min;
+		maxP = max;
+	}
+};
+
+
+AABB aabb = AABB(Point(-1.5, -1.5, -1.5), Point(1.5, 1.5, 1.5));
 Scene scene = Scene();
 
+
+Vector minVec(Vector one, Vector two) {
+
+	return (min(one.x, two.x), min(one.y, two.y), min(one.z, two.z));
+}
+
+Vector maxVec(Vector one, Vector two) {
+
+	return (max(one.x, two.x), max(one.y, two.y), max(one.z, two.z));
+}
 
 void closestHit(HitAttribute *hitAttribute, Ray *ray, Payload *payload) {
 
 	//cout << "Clostest Hit " << endl;
-	payload->color = hitAttribute->material; // * (-(ray.dir.dot(hitAttribute.normal)));
+
+	Point pointOnSphere = ray->origin + ray->dir * hitAttribute->t;
+	Vector lightVec = scene.lights[0].position - pointOnSphere;
+
+
+	payload->color = hitAttribute->material * lightVec.normalize().dot(hitAttribute->normal) * scene.lights[0].intensity;    // * -ray->dir.dot(hitAttribute->normal);
 }
 
 
@@ -108,18 +139,18 @@ bool traverseScene(Ray *ray, HitAttribute *hitAttr) {
 
 	bool intersection = false;
 
-	//vec3 tMin = (aabb.minP - ray.origin) / ray.direction;
-	//vec3 tMax = (aabb.maxP - ray.origin) / ray.direction;
+	Vector tMin = (aabb.minP - ray->origin) / ray->dir;
+	Vector tMax = (aabb.maxP - ray->origin) / ray->dir;
 
-	//vec3 t1 = min(tMin, tMax);
-	//vec3 t2 = max(tMin, tMax);
+	Vector t1 = minVec(tMin, tMax);
+	Vector t2 = maxVec(tMin, tMax);
 
-	//float tNear = max(max(max(t1.x, t1.y), t1.z), ray.tMin);
-	//float tFar = min(min(min(t2.x, t2.y), t2.z), ray.tMax);
+	float tNear = max(max(max(t1.x, t1.y), t1.z), ray->tMin);
+	float tFar = min(min(min(t2.x, t2.y), t2.z), ray->tMax);
 
-	//intersection = tNear <= tFar; // make new variable here to remove black box
+	intersection = tNear <= tFar; // make new variable here to remove black box
 
-	//if (intersection) {
+	if (intersection) {
 		for (int i = 0; i < scene.spheres.size(); i++)
 		{
 			if (hitRaySphere(ray, scene.spheres[i], hitAttr))
@@ -128,7 +159,7 @@ bool traverseScene(Ray *ray, HitAttribute *hitAttr) {
 				ray->tMax = hitAttr->t;
 			}
 		}
-	//}
+	}
 
 	return intersection;
 }
@@ -153,7 +184,7 @@ int main() {
 	float viewHeight = 2.0 * tan(fov / 2.0);
 	float viewWidth = aspectRatio * viewHeight;
 
-	Point cameraOrigin = Point(0, 0, 2); //camera eye
+	Point cameraOrigin = Point(0, 0, -2); //camera eye
 	Point cameraAt = Point(0, 0, 0);
 	Vector cameraUp = Vector(0, 1, 0); //to define y axis
 	Vector cameraDir = cameraOrigin - cameraAt; //at - eye
@@ -169,9 +200,13 @@ int main() {
 	Sphere circleSphere = Sphere(Point(0, 0, 0), 0.5, Color(0.0, 0.0, 1.0));
 	scene.spheres.push_back(circleSphere);
 
+	Light light1 = Light(Point (1, 1, -1), Color (1, 1, 1), 1.5);
+	//1x right1, 1y upy, -1z outz
+	scene.lights.push_back(light1);
+
 	for (int y = 0; y < height; y++) {
 
-		//std::cerr << "\rLoading: " << y << "%" << std::flush;
+		//std::cerr << "\rLoading: " << y << std::flush;
 
 		for (int x = 0; x < width; x++) {
 
@@ -180,7 +215,7 @@ int main() {
 
 			Vector pixelDir = -W + cameraV * ndcY + cameraU * ndcX;
 
-			Ray ray = Ray(Point(ndcX, ndcY, -5), Vector(0, 0, 1), EPSILON, INFIN);
+			Ray ray = Ray(cameraOrigin, pixelDir, EPSILON, INFIN);
 
 			Payload payload = Payload(Color(0.5, 0.5, 1)); //background color (no hit)
 			traceRay(&ray, &payload);
