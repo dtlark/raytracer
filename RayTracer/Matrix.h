@@ -20,6 +20,8 @@ public:
 
 		//init to identity matrix
 		//identity matrix * tuple = tuple
+		row = 4;
+		col = 4;
 		data = {{1, 0, 0, 0},
 				{0, 1, 0, 0},
 				{0, 0, 1, 0},
@@ -70,7 +72,7 @@ public:
 
 	Matrix operator*(Matrix const& other) const { //matrix * matrix //
 
-		Matrix temp(row, other.col);
+		Matrix temp = Matrix(row, other.col);
 
 		if (col != other.row) {
 			cout << "Column of first matrix should be equal to row of second matrix" << endl;
@@ -283,18 +285,17 @@ public:
 	// Function to calculate and store inverse, returns false if 
 	// matrix is singular 
 	Matrix inverse() {
-		vector<vector<float>> inverse = nullMat;
 
 		vector<vector<float>> identity = { {1, 0, 0, 0},
 											{ 0, 1, 0, 0 },
 											{ 0, 0, 1, 0 },
 											{ 0, 0, 0, 1 } };
 
+		vector<vector<float>> inverse = nullMat;
 
 		if (data == identity) {
 			return identity;
 		}
-
 
 		// Find determinant of A[][] 
 		float det = determinant(data, 4);
@@ -304,6 +305,7 @@ public:
 		}
 
 		// Find adjoint 
+
 
 		vector<vector<float>> adj = nullMat;
 		adjoint(data, adj);
@@ -315,6 +317,7 @@ public:
 			}
 		}
 
+
 		return Matrix(inverse);
 	}
 
@@ -325,18 +328,25 @@ public:
 	//TODO: Multiply inverse of a translation matrix
 	//TODO: Multiply translation matrix * point = to apply transofrmations 
 	//Vectors are translation independent (origin independent) so there is no point in translating
-	void translate(Point p) {
+	void translate(float x, float y, float z) {
 		
-		Matrix translationMatrix = vector<vector<float>>{ {1, 0, 0, p.x},
-														   {0, 1, 0, p.y},
-														   {0, 0, 1, p.z},
-														   {0, 0, 0, 1}};
+		/*Matrix translationMatrix = vector<vector<float>>{ {1, 0, 0, x},
+														   {0, 1, 0, y},
+														   {0, 0, 1, z},
+														   {0, 0, 0, 1}};*/
 		// | p.x + v.x
 		// | p.y + v.y
 		// | p.z + v.z
 		// | 1 
 
-		data = (translationMatrix * data).data;
+		//data = (translationMatrix * data).data;
+
+		data = vector<vector<float>>{{1, 0, 0, -x},
+									{0, 1, 0, -y},
+									{0, 0, 1, -z},
+									{0, 0, 0, 1} };
+
+		//return translationMatrix * p;
 	
 	}
 

@@ -44,6 +44,13 @@ struct Vector : Tuple {
 
 	void operator=(Vector const& other);
 	bool operator==(Vector const& other) const;
+
+
+	Vector operator+(double const& other) const {
+
+		return (x + other, y + other, z + other);
+	};
+
 	Vector operator+(Vector const& other) const;
 	Vector operator-(Vector const& other) const;
 	Vector operator-() const;
@@ -90,6 +97,12 @@ struct Point : Tuple {
 	bool operator==(Point const& other) const;
 	Point operator+(Point const& other) const; //TODO: Remove
 	Point operator+(Vector const& other) const;
+
+	Point operator+(double const& other) const {
+	
+		return (x + other, y + other, z + other);
+	};
+
 	Vector operator-(Point other);
 	Point operator-(Vector other);
 	Point operator-() const;
